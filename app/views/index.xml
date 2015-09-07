@@ -1,0 +1,7 @@
+<Alloy>
+	<TabGroup>
+		<Require src="searchable" />
+		<Require src="useractivity" />
+		<Require src="console" />
+	</TabGroup>
+</Alloy>

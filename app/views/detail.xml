@@ -1,0 +1,10 @@
+<Alloy>
+	<Window title="{name}">
+		<ScrollView layout="vertical">
+			<ImageView image="{image}" class="image" />
+			<Label class="name">{name}</Label>
+			<Label class="bio">{bio}</Label>
+			<Button onClick="openURL">More on Wikipedia</Button>
+		</ScrollView>
+	</Window>
+</Alloy>
