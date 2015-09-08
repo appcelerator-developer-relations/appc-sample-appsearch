@@ -7,17 +7,18 @@ var currentDetailWindow;
 	populateCollection();
 
 	Ti.App.iOS.addEventListener('continueactivity', function (e) {
+		log.args('Ti.App.iOS:continueactivity', e);
 
-		// She's not our type
-		if (e.activityType !== 'com.apple.corespotlightitem') {
-			return;
+		if (e.activityType === 'com.apple.corespotlightitem') {
+			$.tab.active = true;
+
+			openDetail(e.userInfo.kCSSearchableItemActivityIdentifier);
+
+		} else if (e.activityType === 'com.appcelerator.sample.spotlight.detail') {
+			$.tab.active = true;
+
+			openDetail(e.userInfo.id);
 		}
-
-		log.argsSilent('Ti.App.iOS:continueactivity', e);
-
-		$.tab.active = true;
-
-		openDetail(e.userInfo.kCSSearchableItemActivityIdentifier);
 	});
 
 })(arguments[0] || {});
@@ -33,7 +34,6 @@ function onCollectionReset() {
 			title: model.get('name'),
 			contentDescription: model.get('bio'),
 			keywords: ['beatles', 'band', 'music', 'sample', 'spotlight'],
-			rating: 5,
 			thumbnailData: Ti.Filesystem.getFile(Ti.Filesystem.resourcesDirectory, model.get('image')).read()
 		});
 
@@ -41,9 +41,9 @@ function onCollectionReset() {
 
 			// FIXME: https://jira.appcelerator.org/browse/TIMOB-19474
 			identifier: model.get('id'),
-
+			
 			uniqueIdentifier: model.get('id'),
-			domainIdentifier: 'com.appcelerator',
+			domainIdentifier: 'com.appcelerator.sample.spotlight.searchable',
 			attributeSet: searchableItemAttributeSet
 		});
 

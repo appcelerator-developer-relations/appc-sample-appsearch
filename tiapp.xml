@@ -20,7 +20,8 @@
         <!-- All UserActivities need to be defined here -->
         <key>NSUserActivityTypes</key>
         <array>
-          <string>com.appcelerator.sample.spotlight.message</string>
+          <string>com.appcelerator.sample.spotlight.useractivity</string>
+          <string>com.appcelerator.sample.spotlight.detail</string>
         </array>
 
         <key>UISupportedInterfaceOrientations~iphone</key>

@@ -2,6 +2,7 @@
 	<TabGroup>
 		<Require src="searchable" />
 		<Require src="useractivity" />
+		<Require src="settings" />
 		<Require src="console" />
 	</TabGroup>
 </Alloy>

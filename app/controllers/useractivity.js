@@ -9,11 +9,11 @@ var becameCurrent;
 	Ti.App.iOS.addEventListener('continueactivity', function (e) {
 
 		// She's not our type
-		if (e.activityType !== 'com.appcelerator.sample.spotlight.message') {
+		if (e.activityType !== 'com.appcelerator.sample.spotlight.useractivity') {
 			return;
 		}
 
-		log.argsSilent('Ti.App.iOS:continueactivity', e);
+		log.args('Ti.App.iOS:continueactivity', e);
 
 		updateStatus('the continueactivity event was fired after continuing an activity from search or another device. The message should be updated with that of the search index or other device. (see logs for details)');
 
@@ -29,7 +29,7 @@ function createUserActivity() {
 	var parameters = {
 
 		// The value needs to be defined in tiapp.xml
-		activityType: 'com.appcelerator.sample.spotlight.message',
+		activityType: 'com.appcelerator.sample.spotlight.useractivity',
 
 		title: 'Writing a message',
 
@@ -39,9 +39,9 @@ function createUserActivity() {
 			message: $.message.value
 		},
 
-		eligibleForHandoff: $.eligibleForHandoff.value,
-		eligibleForPublicIndexing: $.eligibleForPublicIndexing.value,
-		eligibleForSearch: $.eligibleForSearch.value,
+		eligibleForHandoff: Alloy.Collections.setting.get('eligibleForHandoff').get('value'),
+		eligibleForPublicIndexing: Alloy.Collections.setting.get('eligibleForPublicIndexing').get('value'),
+		eligibleForSearch: Alloy.Collections.setting.get('eligibleForSearch').get('value'),
 
 		// Try searching both soon after you focus on this tab and then about 5
 		// minutes later again. The second time you should not find it.
@@ -49,7 +49,7 @@ function createUserActivity() {
 
 		// regardless of the setting, the first call to becomeCurrent() will
 		// always trigger the useractivitywillsave event
-		needsSave: $.needsSave.value,
+		needsSave: Alloy.Collections.setting.get('needsSave').get('value'),
 
 		requiredUserInfoKeys: ['message'],
 		webpageURL: 'http://googl.com/#q=message'
@@ -62,7 +62,7 @@ function createUserActivity() {
 		contentDescription: $.message.value
 	}));
 
-	log.argsSilent('Ti.App.iOS.createUserActivity()', parameters);
+	log.args('Ti.App.iOS.createUserActivity()', parameters);
 
 	activity.addEventListener('useractivitywillsave', onUseractivitywillsave);
 	activity.addEventListener('useractivitywascontinued', onUseractivitywascontinued);
@@ -85,11 +85,11 @@ function destroyUserActivity() {
 	activity = null;
 	becameCurrent = null;
 
-	log.argsSilent('Ti.App.iOS.UserActivity.invalidate()');
+	log.args('Ti.App.iOS.UserActivity.invalidate()');
 }
 
 function onUseractivitywillsave(e) {
-	log.argsSilent('Ti.App.iOS.UserActivity:useractivitywillsave', e);
+	log.args('Ti.App.iOS.UserActivity:useractivitywillsave', e);
 
 	if (becameCurrent) {
 		becameCurrent = false;
@@ -104,11 +104,11 @@ function onUseractivitywillsave(e) {
 		message: $.message.value
 	};
 
-	log.argsSilent('Updated activity.userInfo.message:', activity.userInfo.message);
+	log.args('Updated activity.userInfo.message:', activity.userInfo.message);
 }
 
 function onUseractivitywascontinued(e) {
-	log.argsSilent('Ti.App.iOS.UserActivity:useractivitywascontinued', e);
+	log.args('Ti.App.iOS.UserActivity:useractivitywascontinued', e);
 
 	updateStatus('the useractivitywascontinued event was fired after continuing this activity on another device. The message on the other device should now be what you had up here. (see logs for details)');
 }
@@ -134,24 +134,7 @@ function onTextAreaChange(e) {
 	// Every (appropriate) time you set this to true the activity will receive
 	// the useractivitywillsave event where you can then update the activity so
 	// that when handed off, the other devices has the most recent information.
-	activity.needsSave = $.needsSave.value;
-}
-
-function onTextAreaBlur(e) {
-	log.argsSilent('blur ' + e.message);
-}
-
-function toggleSwitch(e) {
-	var id = e.source.text;
-
-	$[id].value = !$[id].value;
-}
-
-function onSwitchChange(e) {
-
-	// The settings cannot be changed after creation so we need to recreate it
-	destroyUserActivity();
-	createUserActivity();
+	activity.needsSave = Alloy.Collections.setting.get('needsSave').get('value');
 }
 
 function updateStatus(text) {

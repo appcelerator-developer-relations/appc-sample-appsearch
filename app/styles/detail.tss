@@ -1,5 +1,6 @@
 '.image': {
 	top: 10,
+
 	borderWidth: 5,
 	borderColor: '#eee'
 }

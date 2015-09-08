@@ -1,0 +1,15 @@
+'ListView': {
+	style: Ti.UI.iPhone.ListViewStyle.GROUPED
+}
+
+'ItemTemplate': {
+	selectionStyle: Ti.UI.iPhone.ListViewCellSelectionStyle.NONE
+}
+
+'Label': {
+	left: 15
+}
+
+'Switch': {
+	right: 15
+}
