@@ -5,7 +5,7 @@
   <version>1.0</version>
   <publisher>Appcelerator</publisher>
   <url>http://www.appcelerator.com</url>
-  <description>This app demonstrates Core Spotlight support in Titanium 5.0.0</description>
+  <description>This app demonstrates Core Spotlight and UserActivity support in Titanium 5.0.0</description>
   <copyright>2015 by Appcelerator, Inc.</copyright>
   <icon>appicon.png</icon>
   <fullscreen>false</fullscreen>

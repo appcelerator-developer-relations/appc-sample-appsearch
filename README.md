@@ -1,5 +1,7 @@
 # Core Spotlight Sample App
 
+This app demonstrates Core Spotlight and UserActivity support in Titanium 5.0.0.
+
 ## To Do
 * https://appcelerator.github.io/appc-docs/latest/#!/api/Titanium.App.iOS.SearchableIndex-method-isSupported
 * https://appcelerator.github.io/appc-docs/latest/#!/api/Titanium.App.iOS.SearchableItem-property-expirationDate
