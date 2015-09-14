@@ -17,10 +17,10 @@ As you can see Apple wants users to seamlessly move between apps (via search), d
 
 ## Spotlight
 
-The Spotlight tab in the sample app shows you a list the four Beatles. I use a [undefined model](app/models/array.js) which means I have to [populate (reset) the collection](app/controllers/spotlight.js#L24) every time the app opens. Ideal if you want to use Alloy's data-binding for any array of objects.
+The Spotlight tab in the sample app shows you a list of the four Beatles. I use a [undefined model](app/models/array.js) which means I have to [populate (reset) the collection](app/controllers/spotlight.js#L24) every time the app opens. Ideal if you want to use Alloy's data-binding for any array of objects.
 
 ### Indexing items
-Scroll down to [line 60-120](app/controllers/spotlight.js#L60) of `app/controllers/spotlight.js` to see how I add the Beatles to the Spotlight index. There's three parts to it:
+Scroll down to [line 60-120](app/controllers/spotlight.js#L60) of `app/controllers/spotlight.js` to see how I add the Beatles to the Spotlight index. There are three parts to it:
 
 * [Ti.App.iOS.SearchableItemAttributeSet](http://docs.appcelerator.com/platform/latest/#!/api/Titanium.App.iOS.SearchableItemAttributeSet) to create meta data for..
 * [Ti.App.iOS.SearchableItem](http://docs.appcelerator.com/platform/latest/#!/api/Titanium.App.iOS.SearchableItem) which is the actual item to add to an instance of..
