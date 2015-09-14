@@ -8,5 +8,4 @@ tmp
 .project
 .settings
 Thumbs.db
-extensions/Ti 5.0.0/Ti 5.0.0.xcodeproj/xcuserdata
-extensions/Ti 5.0.0/Ti 5.0.0.xcodeproj/project.xcworkspace
+_assets

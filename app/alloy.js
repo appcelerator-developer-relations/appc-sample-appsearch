@@ -9,7 +9,3 @@
 // object. For example:
 //
 // Alloy.Globals.someGlobalFunction = function(){};
-
-(function(global) {
-
-})(this);

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ti:app xmlns:ti="http://ti.appcelerator.org">
-  <id>com.appcelerator.sample.spotlight</id>
-  <name>Spotlight</name>
+  <id>com.appcelerator.sample.appsearch</id>
+  <name>App Search</name>
   <version>1.0</version>
   <publisher>Appcelerator</publisher>
   <url>http://www.appcelerator.com</url>
@@ -20,7 +20,7 @@
         <!-- All UserActivities need to be defined here -->
         <key>NSUserActivityTypes</key>
         <array>
-          <string>com.appcelerator.sample.spotlight.useractivity</string>
+          <string>com.appcelerator.sample.spotlight.writing</string>
           <string>com.appcelerator.sample.spotlight.detail</string>
         </array>
 
@@ -64,7 +64,7 @@
     <target device="mobileweb">false</target>
     <target device="windows">false</target>
   </deployment-targets>
-  <sdk-version>5.0.0.v20150903221516</sdk-version>
+  <sdk-version>5.0.0.v20150914021515</sdk-version>
   <plugins>
     <plugin version="1.0">ti.alloy</plugin>
   </plugins>

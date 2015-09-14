@@ -1,8 +1,7 @@
 <Alloy>
 	<TabGroup>
-		<Require src="searchable" />
+		<Require src="spotlight" />
 		<Require src="useractivity" />
-		<Require src="settings" />
 		<Require src="console" />
 	</TabGroup>
 </Alloy>

@@ -19,10 +19,5 @@
 	left: 25,
 	bottom: 25,
 
-	height: Ti.UI.SIZE,
-
-	color: '#999',
-	font: {
-		fontSize: 15
-	}
+	height: Ti.UI.SIZE
 }

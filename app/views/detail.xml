@@ -1,11 +1,13 @@
 <Alloy>
 	<Window title="{name}" onFocus="onWindowFocus" onBlur="onWindowBlur">
-		<RightNavButton systemButton="INFO_LIGHT" onClick="openURL" />
+		<RightNavButton systemButton="ACTION" onClick="openURL" />
 
-		<ScrollView layout="vertical">
+		<ScrollView>
 			<ImageView image="{image}" class="image" />
 			<Label class="name">{name}</Label>
 			<Label class="bio">{bio}</Label>
+			<Label class="help">Install this app on another device and double-tap the home button there to continue the activity of viewing this Beatle that device.\n\nUnless you have used the trash icon on the previous screen you should be able to find this Beatle in Spotlight under 'appsearch'.</Label>
 		</ScrollView>
+
 	</Window>
 </Alloy>
