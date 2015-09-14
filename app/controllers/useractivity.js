@@ -138,8 +138,6 @@ function onUseractivitywillsave(e) {
 
 /**
  * Fired when the user activity was continued on another device.
- *
- * You might want to lock the message or warn the user.
  */
 function onUseractivitywascontinued(e) {
 	log.args('Ti.App.iOS.UserActivity:useractivitywascontinued', e);
