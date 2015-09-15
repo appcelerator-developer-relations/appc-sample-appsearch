@@ -1,4 +1,4 @@
-# iOS App Search Sample App
+# iOS 9 App Search Sample App
 
 This sample app demonstrates how to make the activities and content of your app searchable via Spotlight, Safari and Siri by using new API's introduced in iOS 9 and supported by Titanium 5.0.0.
 
@@ -13,14 +13,14 @@ I highly recommend reading through all of our new [Spotlight Search Guide](http:
 * Use [Universal Links](https://developer.apple.com/library/prerelease/ios/documentation/General/Conceptual/AppSearch/UniversalLinks.html) and [Smart App Banners](https://developer.apple.com/library/prerelease/ios/documentation/AppleApplications/Reference/SafariWebContent/PromotingAppswithAppBanners/PromotingAppswithAppBanners.html) to enable users to open the current content or activity in your app.
 * [Combine APIs](https://developer.apple.com/library/prerelease/ios/documentation/General/Conceptual/AppSearch/CombiningAPIs.html) for NSUserActivity, Core Spotlight and Web Content Mark Up for the same content to increase coverage and [ranking](https://developer.apple.com/library/prerelease/ios/documentation/General/Conceptual/AppSearch/SearchUserExperience.html#//apple_ref/doc/uid/TP40016308-CH11-SW1).
 
-As you can see Apple wants users to seamlessly move between apps (via search), devices (via handoff) as well as between native apps and websites (via Safari search, universal links and handoff). Apple's programming guide has a nice list of [Example Implementations](https://developer.apple.com/library/prerelease/ios/documentation/General/Conceptual/AppSearch/Choosing.html) for different types of apps to give an idea of what this might work for your app.
+As you can see Apple wants users to seamlessly move between apps (via search), devices (via handoff) as well as between native apps and websites (via Safari search, universal links and handoff). Apple's programming guide has a nice list of [Example Implementations](https://developer.apple.com/library/prerelease/ios/documentation/General/Conceptual/AppSearch/Choosing.html) for different types of apps to give an idea of how this might work for your app.
 
 ## The Sample
 To show the APIs in action I've created the [iOS App Search Sample App](https://github.com/appcelerator-developer-relations/appc-sample-appsearch).
 
 ## Spotlight
 
-The first tab in the sample app shows you a list of The Beatles. The four individual band members will be indexed by SpotLight. The list itself is a user activity, but will come back to that later.
+The first tab in the sample app shows you a list of The Beatles. The four individual band members will be indexed by SpotLight. The list itself is a user activity, but we'll come back to that later.
 
 > **Quick Tip:** I use a local instance of an [definition-less model/collection](app/models/array.js) which means I can [populate (reset) the collection](app/controllers/list.js#L25) to use Alloy's data-binding on any array of objects.
 
@@ -66,7 +66,7 @@ The list in the sample app has a Trash/Add icon as the left navigation button to
 	);
 
 ### Opening a Spotlight search result
-When a user taps on a Spotlight search result your app will open and receive the [continueactivity](http://docs.appcelerator.com/platform/latest/#!/api/Titanium.App.iOS-event-continueactivity) event.
+When a user taps on a Spotlight search result, your app will open and receive the [continueactivity](http://docs.appcelerator.com/platform/latest/#!/api/Titanium.App.iOS-event-continueactivity) event.
 
 Be aware that this event is also fired when a User Activity is opened from the search results or handed off from another device. In the case of a Spotlight search result the event's `activityType` property will be `com.apple.corespotlightitem` and `searchableItemActivityIdentifier` will have the `uniqueIdentifier` you've set on the indexed item.
 
