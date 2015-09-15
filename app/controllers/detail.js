@@ -40,11 +40,11 @@ function createUserActivity() {
 		// This activity can be continued on another device
 		eligibleForHandoff: true,
 
-		// Count this activity as a 'pageview' toward the related web/app content
-		eligibleForPublicIndexing: true,
-
 		// Index this activity for Spotlight as well as Siri suggestions
 		eligibleForSearch: true,
+
+		// Count this activity as a 'pageview' toward the related web/app content
+		eligibleForPublicIndexing: true,
 
 		// Required for eligibleForPublicIndexing, allowing users to open the result in the app
 		requiredUserInfoKeys: ['id'],
@@ -75,7 +75,7 @@ function createUserActivity() {
 		keywords: ['beatle', 'spotlight', 'appsearch', 'sample', 'alloy', 'titanium', 'appcelerator'],
 
 		// The ID of the related Spotlight item to enhance result and prevent duplicates
-		relatedUniqueIdentifier: 'https://website.com/detail/' + $model.get('id')
+		relatedUniqueIdentifier: $model.get('id')
 	}));
 
 	// Check if the user's OS version supports user activities

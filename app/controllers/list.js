@@ -153,7 +153,7 @@ function onContinueactivity(e) {
 		// The model ID is what we've set via Ti.App.iOS.SearchableItem.identifier
 		modelId = e.searchableItemActivityIdentifier;
 
-		// The UserAvtivity for the detail window was continued
+		// The UserActivity for the detail window was continued
 	} else if (e.activityType === 'com.appcelerator.sample.spotlight.detail') {
 
 		// The model ID is what we've set via Ti.App.iOS.UserActivity.userInfo.id
@@ -260,11 +260,11 @@ function createUserActivity() {
 		// This activity can be continued on another device
 		eligibleForHandoff: true,
 
-		// Count this activity as a 'pageview' toward the related web/app content
-		eligibleForPublicIndexing: true,
-
 		// Index this activity for Spotlight as well as Siri suggestions
 		eligibleForSearch: true,
+
+		// Count this activity as a 'pageview' toward the related web/app content
+		eligibleForPublicIndexing: true,
 
 		// Required for eligibleForPublicIndexing
 		webpageURL: 'https://en.wikipedia.org/wiki/The_Beatles'
