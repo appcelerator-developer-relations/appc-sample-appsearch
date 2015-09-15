@@ -109,7 +109,7 @@ When you compare lines 73-88 in `list.js` and lines 61-79 in `detail.js` you wil
 ### Continue a User Activity from Spotlight or Handoff
 From [line 141 of list.js](app/controllers/list.js#L141) you can see we handle a user activity search result in almost the same way as for other Spotlight items. We use the `activityType` to identify it and act accordingly.
 
-The exact same `continueactivity` event is also what handoff will fire. How convenient! Install the app on two devices and double-tap home to try it out:
+The exact same `continueactivity` event is also what handoff will fire so we get that for free! Install the app on two devices and double-tap home to try it out:
 
 ![screenshot](docs/handoff.png)
 
@@ -125,7 +125,7 @@ I already showed you how to combine NSUserActivity and Core Spotlight APIs for t
 
 3. Last but not least follow Apple's guide to [Mark Up Web Content](https://developer.apple.com/library/prerelease/ios/documentation/General/Conceptual/AppSearch/WebContent.html) and use the [App Search API Validation Tool](https://search.developer.apple.com/appsearch-validation-tool) to verify if you've set it all up correctly.
 
-Another benefit of setting `webpageURL` is that you can now handoff a user activity to a device (including desktops) that don't have the app, where it will open the website instead. We will will come back to that in a separate Handoff sample!
+Another benefit of setting `webpageURL` is that you can now handoff a user activity to a device (including desktops) that doesn't have the app, in which case it will open the website instead. We will come back to that in a separate Handoff sample.
 
 ## Links
 
