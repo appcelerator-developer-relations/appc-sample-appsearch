@@ -5,6 +5,18 @@ var log = require('log');
 // Reference to the activity created so we can invalidate it
 var activity;
 
+function onWindowFocus(e) {
+	createUserActivity();
+}
+
+function onWindowBlur(e) {
+	invalidateActivity();
+}
+
+function openWebsite() {
+	Ti.Platform.openURL($model.get('id'));
+}
+
 /**
  * Called when the detail window receives focus to create the user activity and
  * make it the current by calling becomeCurrent()
@@ -34,16 +46,12 @@ function createUserActivity() {
 		// Index this activity for Spotlight as well as Siri suggestions
 		eligibleForSearch: true,
 
-		// regardless of the setting, the first call to becomeCurrent() will
-		// always trigger the useractivitywillsave event
-		needsSave: false,
-
-		// Required for eligibleForPublicIndexing
+		// Required for eligibleForPublicIndexing, allowing users to open the result in the app
 		requiredUserInfoKeys: ['id'],
 
-		// Required for eligibleForPublicIndexing
-		// The website should use Markup pointing back to this app
-		webpageURL: 'https://website.com/detail/' + $model.get('id')
+		// Required for eligibleForPublicIndexing, allowing users to open the result on the website
+		// The website should use Markup pointing back to this app for this to work
+		webpageURL: $model.get('id')
 	};
 
 	activity = Ti.App.iOS.createUserActivity(parameters);
@@ -53,12 +61,14 @@ function createUserActivity() {
 	// Add a content attribute set, just like we did for Spotlight items
 	activity.addContentAttributeSet(Ti.App.iOS.createSearchableItemAttributeSet({
 
-		// In particular useful for music which can be played straight from Spotlight results
+		// In particular useful for music which can be played straight from Spotlight search results
 		itemContentType: Ti.App.iOS.UTTYPE_PLAIN_TEXT,
 
-		// The information shown in Spotlight results
+		// The information shown in Spotlight search results
 		title: $model.get('name'),
 		contentDescription: $model.get('bio'),
+
+		// FIXME: It is more efficient to use thumbnailURL (https://jira.appcelerator.org/browse/TIMOB-19467)
 		thumbnailData: Ti.Filesystem.getFile(Ti.Filesystem.resourcesDirectory, $model.get('image')).read(),
 
 		// Not shown, but used to match results (try 'appsearch')
@@ -92,21 +102,5 @@ function invalidateActivity() {
 	activity.invalidate();
 	activity = null;
 
-	log.args('Ti.App.iOS.UserActivity.invalidate()');
-}
-
-function onWindowFocus(e) {
-	createUserActivity();
-}
-
-function onWindowBlur(e) {
-	invalidateActivity();
-}
-
-/**
- * Event listener for the window's rightNavButton to open more information
- * on the Beatle from Wikipedia in Safari.
- */
-function openURL() {
-	Ti.Platform.openURL($model.get('wiki'));
+	log.args('Ti.App.iOS.UserActivity#detail.invalidate()');
 }

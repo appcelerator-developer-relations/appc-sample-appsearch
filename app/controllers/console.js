@@ -9,7 +9,7 @@ var log = require('log');
 	// Show logs from before this controller was created
 	showLogs();
 
-	// Listen to changes to the logs
+	// Listen to changes
 	log.on('change', showLogs);
 
 })(arguments[0] || {});
