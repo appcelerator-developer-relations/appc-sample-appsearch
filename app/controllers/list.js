@@ -12,6 +12,10 @@ var activity;
  */
 (function constructor(args) {
 
+	if (Alloy.Globals.TI_VERSION < 5) {
+		return;
+	}
+
 	populateCollection();
 
 	// Add the Beatles to Spotlight

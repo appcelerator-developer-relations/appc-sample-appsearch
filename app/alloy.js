@@ -9,3 +9,9 @@
 // object. For example:
 //
 // Alloy.Globals.someGlobalFunction = function(){};
+
+(function (global) {
+
+	Alloy.Globals.TI_VERSION = parseInt(Ti.version.split('.')[0], 10);
+
+})(this);

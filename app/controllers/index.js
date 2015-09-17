@@ -4,6 +4,10 @@
  */
  (function constructor(args) {
 
+ 	if (Alloy.Globals.TI_VERSION < 5) {
+ 		return alert('This sample requires Titanium 5 or later.');
+ 	}
+
 	$.index.open();
 
 })(arguments[0] || {});
