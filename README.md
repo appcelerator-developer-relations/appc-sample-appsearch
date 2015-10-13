@@ -13,6 +13,10 @@ I highly recommend reading through all of our new [Spotlight Search Guide](http:
 * Use [Universal Links](https://developer.apple.com/library/prerelease/ios/documentation/General/Conceptual/AppSearch/UniversalLinks.html) and [Smart App Banners](https://developer.apple.com/library/prerelease/ios/documentation/AppleApplications/Reference/SafariWebContent/PromotingAppswithAppBanners/PromotingAppswithAppBanners.html) to enable users to open the current content or activity in your app.
 * [Combine APIs](https://developer.apple.com/library/prerelease/ios/documentation/General/Conceptual/AppSearch/CombiningAPIs.html) for NSUserActivity, Core Spotlight and Web Content Mark Up for the same content to increase coverage and [ranking](https://developer.apple.com/library/prerelease/ios/documentation/General/Conceptual/AppSearch/SearchUserExperience.html#//apple_ref/doc/uid/TP40016308-CH11-SW1).
 
+They say a picture says more then 5 bullets:
+
+![picture](docs/diagram.png)
+
 As you can see Apple wants users to seamlessly move between apps (via search), devices (via handoff) as well as between native apps and websites (via Safari search, universal links and handoff). Apple's programming guide has a nice list of [Example Implementations](https://developer.apple.com/library/prerelease/ios/documentation/General/Conceptual/AppSearch/Choosing.html) for different types of apps to give an idea of how this might work for your app.
 
 ## The Sample
